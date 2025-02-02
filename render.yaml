@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: fake-news-detector
+    env: python
+    plan: gpu
+    region: oregon
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn -w 4 -b 0.0.0.0:$PORT app:app"
+    envVars:
+      - key: PORT
+        value: "5000"
+      - key: TRANSFORMERS_CACHE
+        value: "/tmp/transformers_cache"
+      - key: TORCH_HOME
+        value: "/tmp/torch_cache"

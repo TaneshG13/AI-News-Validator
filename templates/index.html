@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI News Validator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-shield-alt me-2"></i>
+                AI News Validator
+            </a>
+        </div>
+    </nav>
+
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-8">
+                <div class="card bg-dark text-light">
+                    <div class="card-header d-flex align-items-center">
+                        <i class="fas fa-newspaper me-2"></i>
+                        News Validation System
+                    </div>
+                    <div class="card-body">
+                        <form id="newsForm">
+                            <div class="mb-4">
+                                <label for="newsText" class="form-label">
+                                    <i class="fas fa-pen me-2"></i>Enter News Article Text
+                                </label>
+                                <textarea 
+                                    class="form-control bg-darker" 
+                                    id="newsText" 
+                                    rows="8" 
+                                    placeholder="Paste your news article text here..." 
+                                    required
+                                ></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">
+                                <i class="fas fa-magic me-2"></i>Analyze Text
+                            </button>
+                        </form>
+                        
+                        <div id="result" class="mt-4 text-center d-none">
+                            <div class="result-card">
+                                <div class="result-header">
+                                    <i class="fas fa-chart-pie me-2"></i>
+                                    Analysis Result
+                                </div>
+                                <div class="result-content">
+                                    <div id="resultText"></div>
+                                    <div class="confidence-meter mt-3">
+                                        <div class="progress">
+                                            <div id="confidenceBar" 
+                                                 class="progress-bar" 
+                                                 role="progressbar" 
+                                                 style="width: 0%">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer text-center">
+                        <small class="text-muted">
+                            <i class="fas fa-robot me-1"></i>
+                            Powered by Advanced AI Technology
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
